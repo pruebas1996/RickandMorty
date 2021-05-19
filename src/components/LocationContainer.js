@@ -1,3 +1,4 @@
+import './Styles.css';
 import { useEffect, useState } from 'react';
 import LocationInfo from './LocationInfo';
 import SearchBox from './SearchBox';
@@ -13,7 +14,6 @@ const LocationContainer = ({ getLocation }) => {
 
     useEffect(() => {
         getLocation(searchText).then(data => {
-            console.log(data.results)
             setGetData(data.results[Math.floor(Math.random() * data.results.length)])
         });
     }, [searchText, getLocation])
@@ -37,12 +37,18 @@ const LocationContainer = ({ getLocation }) => {
     }
 
     return (
-        <div >
-            <SearchBox handleCLick={setSearchText} />
-            <LocationInfo names={name} type={type} resident={resident} dimension={dimension} />
-
-            {  getTenResidents().map(url => <ResidentContainer key={url} array={url} />)}
-
+        <div className='container' >
+            <div className='header'>                
+            <div className='location'>
+                    <LocationInfo names={`Location: ${name}`} type={`Type: ${type}`} resident={`Residents: ${resident}`} dimension={`Dimension: ${dimension}`} />
+                </div>
+                <div className='search'>
+                    <SearchBox handleCLick={setSearchText} />
+                </div>
+            </div>
+            <div className='content'>
+                {getTenResidents().map(url => <ResidentContainer key={url} array={url} />)}
+            </div>
         </div>
     );
 }

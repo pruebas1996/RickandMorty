@@ -5,9 +5,8 @@ function App() {
   
   return (
     <div className="App">
-      <header className="App-header">
-        <LocationContainer getLocation={getLocation} />
-      </header>
+      <div><h1>RYCK AND MORTY</h1></div>
+        <LocationContainer getLocation={getLocation} />    
     </div>
   );
 }

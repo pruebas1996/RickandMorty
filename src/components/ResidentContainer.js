@@ -1,3 +1,4 @@
+import './Styles.css';
 import { useEffect, useState } from 'react';
 import ResidentInfo from './ResidentInfo';
 
@@ -23,9 +24,10 @@ const ResidentContainer = ({ array }) => {
         }
     }, [array])
     return (
-        <>
-            <ResidentInfo name={name} status={status} image={image} origin={origin} episodes={episodes} />
-        </>
+    <div className='card'>
+          <ResidentInfo name={`Name: ${name}`} status={`Status: ${status}`} image={image} origin={`Origin: ${origin}`} episodes={`Episodes: ${episodes}`} />    
+    </div>
+          
     )
 }
 export default ResidentContainer;

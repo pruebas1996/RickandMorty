@@ -2,13 +2,17 @@
 const ResidentInfo = ({name,status,image,origin,episodes})=>{
    
     return (
-        <div>
+        <>
+            <div className='card-img' >
+            <img alt={name} src={image} />
+            </div> 
+            <div className='card-text' >
             <h5>{name}</h5>
             <h5>{status}</h5>   
             <h5>{origin}</h5>
             <h5>{episodes}</h5>
-            <img alt={name} src={image} />
-        </div>
+            </div>                  
+        </>
     )
 }
 export default ResidentInfo;
